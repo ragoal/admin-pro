@@ -6,6 +6,7 @@ import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { NgModule } from '@angular/core';
 import { NopagefoundComponent } from '../shared/nopagefound/nopagefound.component';
+import { AccountSetingsComponent } from './account-setings/account-setings.component';
 
 const pagesRoutes:Routes =[
     {
@@ -13,6 +14,7 @@ const pagesRoutes:Routes =[
         component: PagesComponent,
         children:[
             {path:'dashboard', component:DashboardComponent},
+            {path:'account-settings', component:AccountSetingsComponent},
             {path:'progress', component:ProgressComponent},
             {path:'graficas1', component:Graficas1Component},
             {path:'', redirectTo:'/dashboard',pathMatch:'full'},
