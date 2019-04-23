@@ -1,3 +1,51 @@
-<p>
-  graficas1 works!
-</p>
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{graficos.grafico1.leyenda}}</h4>
+
+                <app-grafica-dona [labels]="graficos.grafico1.labels" [dataSet]="graficos.grafico1.data" [charType]="graficos.grafico1.type"></app-grafica-dona>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{graficos.grafico2.leyenda}}</h4>
+
+                <app-grafica-dona [labels]="graficos.grafico2.labels" [dataSet]="graficos.grafico2.data" [charType]="graficos.grafico2.type"></app-grafica-dona>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title">{{graficos.grafico3.leyenda}}</h4>
+
+                <app-grafica-dona [labels]="graficos.grafico3.labels" [dataSet]="graficos.grafico3.data" [charType]="graficos.grafico3.type"></app-grafica-dona>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{graficos.grafico4.leyenda}}</h4>
+
+                <app-grafica-dona [labels]="graficos.grafico4.labels" [dataSet]="graficos.grafico4.data" [charType]="graficos.grafico4.type"></app-grafica-dona>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
