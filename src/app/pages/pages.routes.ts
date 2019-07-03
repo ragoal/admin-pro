@@ -9,11 +9,13 @@ import { NopagefoundComponent } from '../shared/nopagefound/nopagefound.componen
 import { AccountSetingsComponent } from './account-setings/account-setings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { LoginGuardGuard } from '../services/service.index';
 
 const pagesRoutes:Routes =[
     {
         path: '',
         component: PagesComponent,
+        canActivate:[LoginGuardGuard],
         children:[
             {path:'dashboard', component:DashboardComponent, data:{titulo:'Dasboard'}},
             {path:'account-settings', component:AccountSetingsComponent, data:{titulo:'Account Settings'}},

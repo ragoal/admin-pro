@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 import { map } from 'rxjs/operators';
 import swal from 'sweetalert';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +15,47 @@ export class UsuarioService {
   token:string;
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,
+    public router:Router) {
     console.log("Servicio de usuario listo")
+    this.cargarStorage();
    }
+
+   estaLogueado(){
+     return (this.token.length>5) ? true : false;
+   }
+
+  cargarStorage(){
+    if (localStorage.getItem('token')){
+      this.token=localStorage.getItem('token');
+      this.usuario= JSON.parse(localStorage.getItem('usuario'));
+      
+      }else{
+        this.token="";
+        this.usuario=null;
+      }
+  }
+
 
    guardarStorage(id:string, token:string, usuario:Usuario){
         localStorage.setItem('id', id);
         localStorage.setItem('token', token);
         localStorage.setItem('usuario', JSON.stringify(usuario));
-        this.usuario=usuario;
+        this.usuario = usuario;
         this.token = token;
    }
+
+
+   logout(){
+     this.usuario = null;
+     this.token = '';
+     localStorage.removeItem('usuario');
+     localStorage.removeItem('token');
+     this.router.navigate(['/login'])
+
+   }
+
+
 
   loginGoogle(token:string){
     let url = URL_SERVICIOS + '/login/google';

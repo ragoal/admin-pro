@@ -49,7 +49,10 @@ export class LoginComponent implements OnInit {
       let token = googleUser.getAuthResponse().id_token;
       // console.log(token);
       this._usuarioService.loginGoogle(token)
-        .subscribe(()=>{this.router.navigate(['/dashboard'])})
+        .subscribe(()=>{
+          // this.router.navigate(['/dashboard'])
+          window.location.href="#/dashboard"
+        })
     });
   }
 
@@ -59,8 +62,10 @@ export class LoginComponent implements OnInit {
     // console.log(forma.value);
     let usuario = new Usuario(null,forma.value.email,forma.value.password);
     this._usuarioService.login(usuario, forma.value.recuerdame)
-    .subscribe(resp=>this.router.navigate(['/dashboard']))
-    // this.router.navigate(['/dashboard']);
+    .subscribe(()=>{
+      // this.router.navigate(['/dashboard'])
+      window.location.href="#/dashboard"
+    })
 
   }
 }
